@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class CurrencyConverter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Define exchange rates (for example USD to EUR and USD to INR)
+        double usdToEur = 0.92; // 1 USD = 0.92 EUR
+        double usdToInr = 83.35; // 1 USD = 83.35 INR
+
+        // User input for currency conversion
+        System.out.println("Currency Converter");
+        System.out.println("1. USD to EUR");
+        System.out.println("2. USD to INR");
+        System.out.print("Enter the option number: ");
+        int option = scanner.nextInt();
+
+        System.out.print("Enter the amount in USD: ");
+        double amountInUsd = scanner.nextDouble();
+
+        double convertedAmount = 0;
+
+        // Perform conversion based on user's choice
+        switch (option) {
+            case 1:
+                convertedAmount = amountInUsd * usdToEur;
+                System.out.printf("%.2f USD = %.2f EUR\n", amountInUsd, convertedAmount);
+                break;
+            case 2:
+                convertedAmount = amountInUsd * usdToInr;
+                System.out.printf("%.2f USD = %.2f INR\n", amountInUsd, convertedAmount);
+                break;
+            default:
+                System.out.println("Invalid option.");
+                break;
+        }
+
+        scanner.close();
+    }
+}
